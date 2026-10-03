@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Virtual Try-On</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              serif: ['Instrument Serif', 'serif'],
-            },
-          }
-        }
-      }
-    </script>
-    <script type="importmap">
-      {
-        "imports": {
-          "react/": "https://esm.sh/react@^19.1.0/",
-          "react": "https://esm.sh/react@^19.1.0",
-          "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
-          "@google/genai": "https://esm.sh/@google/genai@^1.10.0",
-          "react-image-crop": "https://esm.sh/react-image-crop@^11.0.6",
-          "framer-motion": "https://esm.sh/framer-motion@^11.2.12",
-          "clsx": "https://esm.sh/clsx@^2.1.1",
-          "tailwind-merge": "https://esm.sh/tailwind-merge@^2.4.0",
-          "@tsparticles/react": "https://esm.sh/@tsparticles/react@^3.0.0",
-          "@tsparticles/engine": "https://esm.sh/@tsparticles/engine@^3.5.0",
-          "@tsparticles/slim": "https://esm.sh/@tsparticles/slim@^3.5.0"
-        }
-      }
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://esm.sh/react-image-crop@^11.0.6/dist/ReactCrop.css" />
-    <link rel="stylesheet" href="/index.css" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketing Signal Dashboard — GA4, Search Console, Bing &amp; sGTM</title>
+<meta name="description" content="One dashboard for GA4, Google Search Console, Bing Webmaster Tools and server-side GTM: channel performance, combined search, six attribution models and server-side tracking health. Demo data included; connect your own APIs. Built by zov911.">
+<meta name="author" content="zov911">
+<meta property="og:title" content="Marketing Signal Dashboard">
+<meta property="og:description" content="GA4 + Search Console + Bing + sGTM + attribution in one view.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0a0e14">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230ea5e9'/%3E%3Cpath d='M7 22l6-7 4 4 8-10' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.1/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><div class="logo" aria-hidden="true">◢</div><div><b>Signal</b><small>Marketing dashboard</small></div></div>
+    <nav id="nav" aria-label="Sections">
+      <button data-view="overview" aria-current="page"><span>◎</span>Overview</button>
+      <button data-view="search"><span>⌕</span>Search: Google + Bing</button>
+      <button data-view="attribution"><span>⇄</span>Attribution</button>
+      <button data-view="sgtm"><span>⚙</span>Server-side tracking</button>
+      <button data-view="connect"><span>⚿</span>Connect data</button>
+    </nav>
+    <div class="side-foot">
+      <div class="src" id="srcBadge"></div>
+      <a href="https://zov911.com" target="_blank" rel="noopener" class="side-cta">Want this for your business? →<br><b>zov911.com</b></a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="bar">
+      <div><h1 id="title">Overview</h1><p id="subtitle" class="muted"></p></div>
+      <div class="controls">
+        <div class="seg" role="group" aria-label="Date range" id="range">
+          <button data-days="28">28d</button><button data-days="90" aria-pressed="true">90d</button>
+        </div>
+        <button class="btn ghost" id="btnCsv" type="button">↓ CSV</button>
+      </div>
+    </header>
+    <div id="view" aria-live="polite"></div>
+    <footer class="foot">
+      <span>© <span id="yr">2026</span> zov911 · Designed &amp; built by <a href="https://zov911.com" target="_blank" rel="noopener">zov911</a> · <a href="https://github.com/zov911/marketing-signal-dashboard" target="_blank" rel="noopener">Source</a></span>
+      <span>Demo data is fictional and generated in your browser.</span>
+    </footer>
+  </main>
+</div>
+<script type="module" src="assets/app.js"></script>
+</body>
 </html>
